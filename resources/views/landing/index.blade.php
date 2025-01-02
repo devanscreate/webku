@@ -433,3 +433,391 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-lg-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-danger"> Pemberitahuan!</h5>
+                                            <h6 class="text-danger">Mohon lengkapi dan cek data anda
+                                                dengan seksama!</h6>
+                                            <ol>
+                                                <li>Kesalahan dalam penginputan data atau terdapat data
+                                                    yang tidak sesuai dapat berupa penolakan !</li>
+                                                <li>Pemalsuan data dapat berupa blacklist dalam
+                                                    pendaftaran</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="daftar" class="daftar">
+                            <div class="container" data-aos="fade-up">
+                                <section class="section">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <center>
+                                                        <h5 class="card-title text-success"> Data Diri
+                                                            Telah Diterima</h5>
+                                                    </center>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </section>
+                        @endif
+                    </div>
+                    {{-- Form Data Wali --}}
+                    <div class="tab-pane fade profile-edit" id="nilai-raport">
+                        @if ($wali->count() == 0)
+                        <section class="section">
+                            <div class="row">
+                                <div class="col-lg-9">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Formulir Data OrangTua/Wali</h5>
+                                            <!-- Form Pendaftaran -->
+                                            <form action="{{ route('wali.store') }}" method="POST">
+                                                @csrf
+                                                <div class="row mb-3">
+                                                    <label for="nama_wali"
+                                                        class="col-sm-4 col-form-label">Nama
+                                                        OrangTua/Wali</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control"
+                                                            name="nama_wali" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <label for="pekerjaan_wali"
+                                                        class="col-sm-4 col-form-label">Pekerjaan
+                                                        OrangTua/Wali</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control"
+                                                            name="pekerjaan_wali" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <label for="alamat_wali"
+                                                        class="col-sm-4 col-form-label">Alamat
+                                                        Lengkap OrangTua/Wali</label>
+                                                    <div class="col-sm-8">
+                                                        <textarea class="form-control" style="height: 100px" name="alamat_wali" required></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <label for="penghasilan_wali"
+                                                        class="col-sm-4 col-form-label">Penghasilan
+                                                        OrangTua/Wali</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="number" class="form-control"
+                                                            name="penghasilan_wali" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <label for="nohp_wali"
+                                                        class="col-sm-4 col-form-label">Nomor Hp
+                                                        OrangTua/Wali</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control"
+                                                            name="nohp_wali" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <label for="status_wali"
+                                                        class="col-sm-4 col-form-label">Status
+                                                        OrangTua/Wali</label>
+                                                    <div class="col-sm-8">
+                                                        <select name="status_wali" class="form-control" required>
+                                                            <option value="Hidup">Masih Hidup
+                                                            </option>
+                                                            <option value="Meninggal">Meninggal
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3 p-2">
+                                                    <button type="submit"
+                                                        class="btn btn-primary">Submit
+                                                        Pendaftaran</button>
+                                                </div>
+
+                                            </form><!-- End Form Pendaftaran -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-danger"> Pemberitahuan!</h5>
+                                            <h6 class="text-danger">Mohon lengkapi dan cek data anda
+                                                dengan seksama!</h6>
+                                            <ol>
+                                                <li>Kesalahan dalam penginputan data atau terdapat data
+                                                    yang tidak sesuai dapat berupa penolakan !</li>
+                                                <li>Pemalsuan data dapat berupa blacklist dalam
+                                                    pendaftaran</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        @else
+                        <section class="section">
+                            <div class="row">
+                                <div class="col-lg-9">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Formulir Data OrangTua/Wali</h5>
+                                            <!-- Form Pendaftaran -->
+                                            <form action="{{ route('wali.update', Auth::user()->waliStudent->id) }}" method="POST">
+                                                @csrf
+                                                @method('PUT')
+                                                <div class="row mb-3">
+                                                    <label for="nama_wali"
+                                                        class="col-sm-4 col-form-label">Nama
+                                                        OrangTua/Wali</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control"
+                                                            name="nama_wali" value="{{ Auth::user()->waliStudent->nama_wali }}" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <label for="pekerjaan_wali"
+                                                        class="col-sm-4 col-form-label">Pekerjaan
+                                                        OrangTua/Wali</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control"
+                                                            name="pekerjaan_wali" value="{{ Auth::user()->waliStudent->pekerjaan_wali }}" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <label for="alamat_wali"
+                                                        class="col-sm-4 col-form-label">Alamat
+                                                        Lengkap OrangTua/Wali</label>
+                                                    <div class="col-sm-8">
+                                                        <textarea class="form-control" style="height: 100px" name="alamat_wali" required>{{ Auth::user()->waliStudent->alamat_wali }}</textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <label for="penghasilan_wali"
+                                                        class="col-sm-4 col-form-label">Penghasilan
+                                                        OrangTua/Wali</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="number" class="form-control"
+                                                            name="penghasilan_wali" required value="{{ Auth::user()->waliStudent->penghasilan_wali }}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <label for="nohp_wali"
+                                                        class="col-sm-4 col-form-label">Nomor Hp
+                                                        OrangTua/Wali</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control"
+                                                            name="nohp_wali" required value="{{ Auth::user()->waliStudent->nohp_wali }}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <label for="status_wali"
+                                                        class="col-sm-4 col-form-label">Status
+                                                        OrangTua/Wali</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control"
+                                                            name="status_wali" required value="{{ Auth::user()->waliStudent->status_wali }}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3 p-2">
+                                                    <button type="submit"
+                                                        class="btn btn-primary">Update
+                                                        Pendaftaran</button>
+                                                </div>
+
+                                            </form><!-- End Form Pendaftaran -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-danger"> Pemberitahuan!</h5>
+                                            <h6 class="text-danger">Mohon lengkapi dan cek data anda
+                                                dengan seksama!</h6>
+                                            <ol>
+                                                <li>Kesalahan dalam penginputan data atau terdapat data
+                                                    yang tidak sesuai dapat berupa penolakan !</li>
+                                                <li>Pemalsuan data dapat berupa blacklist dalam
+                                                    pendaftaran</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="daftar" class="daftar">
+                            <div class="container" data-aos="fade-up">
+                                <section class="section">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <center>
+                                                        <h5 class="card-title text-success"> Data Wali
+                                                            Telah Diterima</h5>
+                                                    </center>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </section>
+                        @endif
+                    </div>
+                    {{-- Form Pas Foto dan Ijazah/SKL --}}
+                    <div class="tab-pane fade profile-edit" id="raport">
+                        @if ($ijazah->count() == 0)
+                        <section class="section">
+                            <div class="row">
+                                <div class="col-lg-9">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Formulir Pas Foto, Ijazah/SKL</h5>
+                                            <!-- Form Pendaftaran -->
+                                            <form action="{{ route('ijazah.store') }}" method="POST"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                <div class="row mb-3">
+                                                    <label for="pas_foto"
+                                                        class="col-sm-4 col-form-label">File
+                                                        Pas Foto</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" type="file"
+                                                            id="formFile" name="pas_foto" required>
+                                                        <div class="form-text">Upload Pas Foto Kamu
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <label for="file_ijazah"
+                                                        class="col-sm-4 col-form-label">File
+                                                        Ijzah/SKL</label>
+                                                    <div class="col-sm-8">
+                                                        <input class="form-control" type="file"
+                                                            id="formFile" name="file_ijazah"
+                                                            required>
+                                                        <div class="form-text">Upload File Ijzah/SKL
+                                                            Kamu</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3 p-2">
+                                                    <button type="submit"
+                                                        class="btn btn-primary">Submit
+                                                        Pendaftaran</button>
+                                                </div>
+
+                                            </form><!-- End Form Pendaftaran -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-danger"> Pemberitahuan!</h5>
+                                            <h6 class="text-danger">Mohon lengkapi dan cek data anda
+                                                dengan seksama!</h6>
+                                            <ol>
+                                                <li>Kesalahan dalam penginputan data atau terdapat data
+                                                    yang tidak sesuai dapat berupa penolakan !</li>
+                                                <li>Pemalsuan data dapat berupa blacklist dalam
+                                                    pendaftaran</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        @else
+                        <section id="daftar" class="daftar">
+                            <div class="container" data-aos="fade-up">
+                                <section class="section">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <center>
+                                                        <h5 class="card-title text-danger"> Data Ijazah
+                                                            Telah Diterima</h5>
+                                                    </center>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </section>
+                        @endif
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        @endif
+        @endif
+        @endif
+
+        <!-- ======= Clients Section ======= -->
+        <section id="about" class="about">
+            <div class="container" data-aos="zoom-out">
+                <div class="section-header">
+                    <h2>Tentang Kami</h2>
+                </div>
+
+                <div class="row gy-4">
+                    <div class="col-lg-6">
+                        <h3>SMK Muhammadiyah 1 Purbalingga, Kabupaten Purbalingga</h3>
+                        <img src="{{ asset('Impact') }}/assets/img/profil1.jpg" class="img-fluid rounded-4 mb-4"
+                            alt="">
+                        <p>SMK Muhammadiyah 1 Purbalingga adalah sebuah lembaga sekolah SMK swata yang berlokasi di Purbalingga, Kab. Purbalingga..</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="content ps-0 ps-lg-5">
+                            <p>SMK Muhammadiyah 1 Purbalingga ini berdiri sejak 2013. Saat ini SMK Muhammadiyah 1 Purbalingga masih menggunakan program kurikulum belajar SMA 2013 MIPA. SMK Muhammadiyah 1 Purbalingga dipimpin oleh seorang kepala sekolah yang bernama Gustirizal dan operator sekolah Trio Putra.</p>
+                            <h4>
+                                <b>
+                                    Akreditasi SMK Muhammadiyah 1 Purbalingga
+                                </b>
+                            </h4>
+                            <p>
+                                SMK Muhammadiyah 1 Purbalingga memiliki akreditasi grade A dengan nilai (akreditasi tahun 2020) dari BAN-S/M (Badan Akreditasi Nasional) Sekolah/Madrasah.
+                            </p>
+
+                            <div class="position-relative mt-4">
+                                <img src="{{ asset('Impact') }}/assets/img/gambar3.jpg" class="img-fluid rounded-4"
+                                    alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
