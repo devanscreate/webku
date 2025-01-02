@@ -821,3 +821,134 @@
 
             </div>
         </section>
+        <section id="faq" class="faq">
+            <div class="container" data-aos="fade-up">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-4">
+                        <div class="content px-xl-5">
+                            <h3><strong>Pertanyaan</strong> yang Sering Diajukan ?</h3>
+                            <p>
+                                PPDB Online SMK Muhammadiyah 1 Purbalingga
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="accordion accordion-flush" id="faqlist" data-aos="fade-up" data-aos-delay="100">
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#faq-content-1">
+                                        <span class="num">1.</span>
+                                        Jika mengalami kendala, kemana harus disampaikan?
+                                    </button>
+                                </h3>
+                                <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                                    <div class="accordion-body">
+                                        Pengaduan dapat disampaikan melalui kontak yang tersedia pada jam kerja, dapat
+                                        juga datang langsung ke lokasi Sekolah tergantung jenis permasalahan yang
+                                        dialami.
+                                    </div>
+                                </div>
+                            </div><!-- # Faq item-->
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#faq-content-2">
+                                        <span class="num">2.</span>
+                                        Apa saja dokumen yang harus disiapkan?
+                                    </button>
+                                </h3>
+                                <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                                    <div class="accordion-body">
+                                        1. Ijazah/Surat Keterangan Lulus <br>
+                                        2. Akta Kelahiran/Surat Keterangan Lahir <br>
+                                        3. Kartu Keluarga (minimal satu tahun) <br>
+                                        4. Buku Rapor (semester 1 s.d. 5) <br>
+                                    </div>
+                                </div>
+                            </div><!-- # Faq item-->
+
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#faq-content-3">
+                                        <span class="num">3.</span>
+                                        Apa Perbedaan PPDB Tahun ini dan Tahun Sebelumnya?
+                                    </button>
+                                </h3>
+                                <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                                    <div class="accordion-body">
+                                        Secara umum, dari regulasi tidak banyak perubahan.
+                                    </div>
+                                </div>
+                            </div><!-- # Faq item-->
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End Frequently Asked Questions Section -->
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-5 col-md-12 footer-info">
+                    <a href="{{ url('/') }}" class="logo d-flex align-items-center">
+                        <span>PPDB </span>
+
+                    </a>
+                    <h5>Daftarkan diri mu sekarang!</h5>
+                </div>
+                <div class="col-lg-4 col-6 footer-links">
+                    <h4>Lokasi</h4>
+                    <p>
+                        Purbalingga, Kec. Purbalingga, Kabupaten Purbalingga, Jawa Tengah, Kode Post 26566
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                    <h4>Hubungi Kami</h4>
+                    <p>
+                        <strong>Phone:</strong> 0812XXXXXXXX<br>
+                        <strong>Email:</strong> devanregiana12345@gmail.com<br>
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container mt-4">
+            <div class="copyright">
+                &copy; Copyright <strong><span>PPDB SMK Muhammadiyah 1 Purbalingga</span></strong>. All Rights Reserved
+            </div>
+        </div>
+
+    </footer><!-- End Footer -->
+    <!-- End Footer -->
+
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="{{ asset('Impact') }}/Assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('Impact') }}/assets/vendor/aos/aos.js"></script>
+    <script src="{{ asset('Impact') }}/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="{{ asset('Impact') }}/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="{{ asset('Impact') }}/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="{{ asset('Impact') }}/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="{{ asset('Impact') }}/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{{ asset('Impact') }}/assets/js/main.js"></script>
+
+</body>
+
+</html>
