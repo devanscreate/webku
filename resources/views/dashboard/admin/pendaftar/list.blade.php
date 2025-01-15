@@ -73,15 +73,15 @@
                                     </form>
                                 </td>
                                 <td>
-                                    <a class="btn btn-primary btn-sm"
-                                        href="{{ route('pendaftar.edit', $item->id) }}">Edit</a>
+                                    <!-- <a class="btn btn-primary btn-sm"
+                                        href="{{ route('pendaftar.edit', $item->id) }}">Edit</a> -->
                                     <a class="btn btn-info btn-sm"
                                         href="{{ route('pendaftar.show', $item->id) }}">Detail</a>
                                     <form action="{{ route('pendaftar.destroy', $item->id) }}" method="POST"
                                         class="d-inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-danger btn-sm mt-2" type="submit">Delete</button>
+                                        <button class="btn btn-danger btn-sm mt-2" type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button>
                                     </form>
                                 </td>
                             </tr>
