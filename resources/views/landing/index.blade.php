@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>PPDB - SMK Muhammadiyah 1 Purbalingga</title>
+    <title>PPDB - SMK XYZ</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <link href="{{ asset('Impact') }}/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -34,7 +34,7 @@
 
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
             <a href="{{ url('/') }}" class="logo d-flex align-items-center">
-                <h1>SMK Muhammadiyah 1 Purbalingga<span>.</span></h1>
+                <h1>SMK XYZ<span>.</span></h1>
             </a>
             <nav id="navbar" class="navbar">
                 <ul>
@@ -77,14 +77,14 @@
             <div class="row gy-5 mb-5" data-aos="fade-in">
                 <div
                     class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
-                    <h2>Welcome to <span>PPDB SMK Muhammadiyah 1 Purbalingga</span></h2>
+                    <h2>Welcome to <span>PPDB SMK XYZ</span></h2>
                     <p>Penerimaan Peserta Didik Baru Tahun 2024/2025</p>
                     <div class="d-flex justify-content-center justify-content-lg-start">
                         <a href="#daftar" class="btn-get-started">Daftar</a>
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2">
-                    <img src="{{ asset('Impact') }}/assets/img/profil1.jpg" class="img-fluid" alt=""
+                    <img src="{{ asset('NiceAdmin/assets/img/hider.jpg') }}" class="img-fluid" alt=""
                         data-aos="zoom-out" data-aos-delay="100">
                 </div>
             </div>
@@ -794,25 +794,26 @@
 
                 <div class="row gy-4">
                     <div class="col-lg-6">
-                        <h3>SMK Muhammadiyah 1 Purbalingga, Kabupaten Purbalingga</h3>
-                        <img src="{{ asset('Impact') }}/assets/img/profil1.jpg" class="img-fluid rounded-4 mb-4"
+                        <h3>SMK XYZ</h3>
+                       <img src="{{ asset('NiceAdmin/assets/img/tentang kami.jpg') }}" class="img-fluid rounded-4 mb-4">
+
                             alt="">
-                        <p>SMK Muhammadiyah 1 Purbalingga adalah sebuah lembaga sekolah SMK swata yang berlokasi di Purbalingga, Kab. Purbalingga..</p>
+                        <p>SMK XYZ adalah sebuah lembaga sekolah SMK swata yang berlokasi di XYZ, Kab. XYZ..</p>
                     </div>
                     <div class="col-lg-6">
                         <div class="content ps-0 ps-lg-5">
-                            <p>SMK Muhammadiyah 1 Purbalingga ini berdiri sejak 2013. Saat ini SMK Muhammadiyah 1 Purbalingga masih menggunakan program kurikulum belajar SMA 2013 MIPA. SMK Muhammadiyah 1 Purbalingga dipimpin oleh seorang kepala sekolah yang bernama Gustirizal dan operator sekolah Trio Putra.</p>
+                            <p>SMK XYZ ini berdiri sejak 2013. Saat ini SMK XYZ masih menggunakan program kurikulum belajar SMA 2013 MIPA. SMK XYZ dipimpin oleh seorang kepala sekolah yang bernama Gustirizal dan operator sekolah Trio Putra.</p>
                             <h4>
                                 <b>
-                                    Akreditasi SMK Muhammadiyah 1 Purbalingga
+                                    Akreditasi SMK XYZ
                                 </b>
                             </h4>
                             <p>
-                                SMK Muhammadiyah 1 Purbalingga memiliki akreditasi grade A dengan nilai (akreditasi tahun 2020) dari BAN-S/M (Badan Akreditasi Nasional) Sekolah/Madrasah.
+                                SMK XYZ memiliki akreditasi grade A dengan nilai (akreditasi tahun 2020) dari BAN-S/M (Badan Akreditasi Nasional) Sekolah/Madrasah.
                             </p>
 
                             <div class="position-relative mt-4">
-                                <img src="{{ asset('Impact') }}/assets/img/gambar3.jpg" class="img-fluid rounded-4"
+                                <img src="{{ asset('NiceAdmin/assets/img/akreditas.jpg') }}" class="img-fluid rounded-4"
                                     alt="">
                             </div>
                         </div>
@@ -830,7 +831,7 @@
                         <div class="content px-xl-5">
                             <h3><strong>Pertanyaan</strong> yang Sering Diajukan ?</h3>
                             <p>
-                                PPDB Online SMK Muhammadiyah 1 Purbalingga
+                                PPDB Online SMK XYZ
                             </p>
                         </div>
                     </div>
@@ -908,7 +909,7 @@
                 <div class="col-lg-4 col-6 footer-links">
                     <h4>Lokasi</h4>
                     <p>
-                        Purbalingga, Kec. Purbalingga, Kabupaten Purbalingga, Jawa Tengah, Kode Post 26566
+                       XYZ
                     </p>
                 </div>
                 <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
@@ -925,7 +926,7 @@
 
         <div class="container mt-4">
             <div class="copyright">
-                &copy; Copyright <strong><span>PPDB SMK Muhammadiyah 1 Purbalingga</span></strong>. All Rights Reserved
+                &copy; Copyright <strong><span>PPDB SMK XYZ</span></strong>. All Rights Reserved
             </div>
         </div>
 
