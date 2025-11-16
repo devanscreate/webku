@@ -61,6 +61,12 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
         Route::get('/pendaftar/{id}/show', [ParticipantsController::class,'show'])->name('pendaftar.show');
         Route::put('/pendaftar/{id}', [ParticipantsController::class,'update'])->name('pendaftar.update');
         Route::delete('/pendaftar/{id}/delete', [ParticipantsController::class, 'destroy'])->name('pendaftar.destroy');
+        // New
+        // Route untuk cetak PDF detail pendaftar
+        Route::get(
+            '/dashboard/admin/pendaftar/{id}/cetak-pdf',
+            [ParticipantsController::class, 'cetakPdf']
+        )->name('pendaftar.cetak-pdf');
     });
 
     Route::prefix('siswa')->middleware(['auth', 'role:User'])->group(function () {

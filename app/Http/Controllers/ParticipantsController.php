@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+// use Barryvdh\DomPDF\Facade as PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class ParticipantsController extends Controller
 {
@@ -51,14 +54,15 @@ class ParticipantsController extends Controller
             'file_raport' => 'mimes:pdf|file',
         ]);
         $validatedData['user_id'] = Auth::id();
-        $file = $request->nama . '-' . time() . '.' .$request->file_raport->extension();
+        $file = $request->nama . '-' . time() . '.' . $request->file_raport->extension();
         $validatedData['file_raport'] = Storage::putFileAs('public/file-raport', $request->file_raport, $file);
 
         ParticipantStudent::create($validatedData);
         return redirect()->back()->with('message', 'Sukses! Data Biodata kamu telah diterima oleh admin, lanjut isi data wali!');
     }
 
-    public function waliStore(Request $request){
+    public function waliStore(Request $request)
+    {
         $validatedData = $request->validate([
             'nama_wali' => 'required',
             'alamat_wali' => 'required',
@@ -72,20 +76,21 @@ class ParticipantsController extends Controller
         return redirect()->back()->with('message', 'Sukses! Data Wali kamu telah diterima oleh admin, lanjut isi data pas foto & ijazah!');
     }
 
-    public function ijazahStore(Request $request){
+    public function ijazahStore(Request $request)
+    {
         $validatedData = $request->validate([
             'pas_foto' => 'mimes:.jpeg,jpg,png,pdf|file',
             'file_ijazah' => 'mimes:pdf|file',
         ]);
         $validatedData['user_id'] = Auth::id();
-        $file = $request->id . '-' . time() . '.' .$request->file_ijazah->extension();
+        $file = $request->id . '-' . time() . '.' . $request->file_ijazah->extension();
         $validatedData['file_ijazah'] = Storage::putFileAs('public/file-ijazah', $request->file_ijazah, $file);
-        $foto = $request->id . '-' . time() . '.' .$request->pas_foto->extension();
+        $foto = $request->id . '-' . time() . '.' . $request->pas_foto->extension();
         $validatedData['pas_foto'] = Storage::putFileAs('public/file-foto', $request->pas_foto, $foto);
 
         $ijazah = IjazahStudent::create($validatedData);
-        if(Auth::user()->waliStudent == null or Auth::user()->participantStudent == null ){
-            return back()->with('message', 'Silahkan isi data wali terlebih dahulu!');    
+        if (Auth::user()->waliStudent == null or Auth::user()->participantStudent == null) {
+            return back()->with('message', 'Silahkan isi data wali terlebih dahulu!');
         }
 
         $user = $ijazah->user;
@@ -138,17 +143,17 @@ class ParticipantsController extends Controller
         $pendaftar->update($validatedData);
 
         return redirect()
-        ->route('pendaftar')
-        ->with('message', 'Sukses! 1 Data Berhasil Diubah');
+            ->route('pendaftar')
+            ->with('message', 'Sukses! 1 Data Berhasil Diubah');
     }
 
     public function updateStatusDiterima(ParticipantStudent $id)
-    {   
+    {
         // $pendaftar = Pendaftar::find($request->terima_id);
         $id->update(['status' => 'diterima']);
         return redirect()->back();
     }
-    
+
     public function updateStatusDitolak(ParticipantStudent $id)
     {
         $id->update(['status' => 'ditolak']);
@@ -159,7 +164,7 @@ class ParticipantsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy (Request $request, $id)
+    public function destroy(Request $request, $id)
     {
         $item = ParticipantStudent::findOrFail($id);
         Storage::delete($item->file_raport);
@@ -168,5 +173,34 @@ class ParticipantsController extends Controller
         return redirect()
             ->route('pendaftar')
             ->with('message', 'Sukses! 1 Data Berhasil Dihapus');
+    }
+
+    public function cetakPdf($id)
+    {
+        // Ambil data pendaftar dari table participant_students
+        $pendaftar = ParticipantStudent::findOrFail($id);
+
+        // Ambil data wali (wali_students)
+        $wali = WaliStudent::where('user_id', $pendaftar->user_id)->first();
+
+        // Ambil data ijazah (ijazah_students)
+        $ijazah = IjazahStudent::where('user_id', $pendaftar->user_id)->first();
+
+        // DomPDF hanya bisa baca file absolute path
+        $raportPath = storage_path('app/' . $pendaftar->file_raport);
+        $fotoPath   = $ijazah ? storage_path('app/' . $ijazah->pas_foto) : null;
+        $ijazahPath = $ijazah ? storage_path('app/' . $ijazah->file_ijazah) : null;
+
+        // Load ke PDF
+        $pdf = Pdf::loadView('dashboard.admin.pendaftar.cetak-pdf', [
+            'pendaftar'   => $pendaftar,
+            'wali'        => $wali,
+            'ijazah'      => $ijazah,
+            'raportPath'  => $raportPath,
+            'fotoPath'    => $fotoPath,
+            'ijazahPath'  => $ijazahPath,
+        ])->setPaper('A4', 'portrait');
+
+        return $pdf->stream('pendaftar-' . $pendaftar->nama . '.pdf');
     }
 }

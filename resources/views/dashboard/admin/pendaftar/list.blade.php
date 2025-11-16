@@ -77,6 +77,18 @@
                                         href="{{ route('pendaftar.edit', $item->id) }}">Edit</a> -->
                                     <a class="btn btn-info btn-sm"
                                         href="{{ route('pendaftar.show', $item->id) }}">Detail</a>
+                                    <!-- Tombol PDF -->
+                                    <!-- <a class="btn btn-danger btn-sm mt-2 d-flex align-items-center gap-1 d-inline-block" href="{{ route('pendaftar.cetak-pdf', $item->id) }}" target="_blank">
+                                        <i class="bi bi-file-pdf"></i> <span>Cetak PDF</span>
+                                    </a> -->
+                                    <a class="btn btn-danger btn-sm mt-2 d-flex align-items-center gap-1 d-inline-block"
+                                        href="{{ route('pendaftar.cetak-pdf', $item->id) }}"
+                                        target="_blank">
+                                        <i class="bi bi-file-earmark-pdf"></i>
+                                        <span>Cetak PDF</span>
+                                    </a>
+
+
                                     <form action="{{ route('pendaftar.destroy', $item->id) }}" method="POST"
                                         class="d-inline">
                                         @csrf
