@@ -203,4 +203,17 @@ class ParticipantsController extends Controller
 
         return $pdf->stream('pendaftar-' . $pendaftar->nama . '.pdf');
     }
+
+    public function indexKepsek()
+    {
+        $pendaftar = ParticipantStudent::all();
+        return view("dashboard.kepsek.pendaftar.list", compact('pendaftar'));
+    }
+
+    public function showKepsek($id)
+    {
+        $pendaftar = ParticipantStudent::findOrFail($id);
+
+        return view('dashboard.kepsek.pendaftar.show', compact('pendaftar'));
+    }
 }
